@@ -1,0 +1,15 @@
+from pytube import YouTube
+
+link = input("Enter youtube link: ")
+
+yt = YouTube(link)
+
+videos = yt.streams.all()
+i = 1  + int
+for stream in videos:
+    print(str(i) + "_" + str(stream))
+    i += 1
+    stream_number = int(input("Select a number: "))
+    video = videos[stream_number - 1]
+    video.download()
+    print("Download is comleted .")
